@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function() {
+            function change($div, val) {
+            var $input = $div.find('.quantity');
+            var count = parseInt($input.val()) + val;
+            count = count < 0 ? 0 : count;
+            $input.val(count);
+            var $price = $div.find('.count_price');
+            $price.text(count * $price.data('price'));
+            }
+            $('.minus').click(function() {
+            change($(this).closest('div'), -1);
+            });
+            $('.plus').click(function() {
+            change($(this).closest('div'), 1);
+            });
+        });
+    </script>
+    <div class="container">
+        <header class="header">
+                <div class="logo">
+                    <img src="../bot_cs/image/usedesk_logo.png" alt="logo">  <!--логотип-->
+                </div>
+                    <ul class="nav">
+                        <li>
+                            <a href="index.html" class="main_button">Продлить</a><!--кнопка "продлить"-->
+                        </li>
+                        <li>
+                            <a href="add.html" class="main_button">Добавить</a><!--кнопка "добавить"-->
+                        </li>
+                        <li>
+                            <a href="#" class="main_button">Помощь</a><!--кнопка "помощь"-->
+                        </li>
+                    </ul>
+                </div> 
+        </header>
+
+           <div class="popap">  <!--подсказка "Добавить"-->
+                <p class="help">На странице “Добавить” вы можете выбрать, что нужно 
+                    добавить в ваш Юздеск. Это могут быть как лицензии на 
+                    агентов, так и дополнительные каналы.</p>
+            </div>   
+                                
+            <section class="store">
+                <div class="main">
+                    <div class="card">                            <!--карточка "агент поддеркжи"-->
+                        <h1>Агент поддержки</h1>
+                        <div class="buttons">
+                            <button class="minus">-</button>
+                            <input class="quantity" type="text" value="0" min="0" id="btn1">
+                            <button class="plus">+</button>
+                        </div>
+                    </div>
+                    <div><p class="description">Агент поддержки общается с клиентами компании.
+                        Администратор может разрешить агентам менять
+                        настройки, создавать новые шаблоны и правила.</p>
+                    </div>
+                </div>
+
+                <div class="main">                              <!--карточка "Внутренний сотрудник"-->
+                    <div class="card">                            
+                        <h1>Внутренний сотрудник</h1>
+                        <div class="buttons">
+                            <button class="minus">-</button>
+                            <input class="quantity" type="text" value="0" min="0" id="btn2">
+                            <button class="plus">+</button>
+                        </div>
+                    </div>
+                    <div><p class="description">Внутренний сотрудник оставляет комментарии для
+                        сотрудников компании, не может писать клиентам
+                        напрямую.</p>
+                    </div>
+                </div>
+
+                <div class="main">                                    <!--карточка "Telegram personal"-->
+                    <div class="card">
+                        <div>
+                            <img class="image" src="../bot_cs/image/telegram-1.svg" alt="Telegram">
+                        </div>
+                        <div class="opisanie">
+                            <span>Telegram Personal</span>
+                            <span>Общайтесь с клиентами в Юздеске через
+                                личный аккаунт Telegram с возможностью 
+                                инициации диалогов.</span>
+                        </div>
+                        <div class="buttons_card">
+                            <button class="minus">-</button>
+                            <input class="quantity" type="text" value="0" min="0" id="btn3">
+                            <button class="plus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main">                                    <!--карточка "ВК Личная страница"-->
+                    <div class="card">
+                        <div>
+                            <img class="image" src="../bot_cs/image/VK_Compact_Logo.svg" alt="ВК">
+                        </div>
+                        <div class="opisanie">
+                            <span>ВК Личная страница</span>
+                            <span>Отвечайте на сообщения личной страницы, которые приходят в direct.</span>
+                        </div>
+                        <div class="buttons_card">
+                            <button class="minus">-</button>
+                            <input class="quantity" type="text" value="0" min="0" id="btn4">
+                            <button class="plus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main">                                    <!--карточка "WhatsApp"-->
+                    <div class="card">
+                        <div>
+                            <img class="image" src="../bot_cs/image/whatsapp-svgrepo-com.svg" alt="WhatsApp">
+                        </div>
+                        <div class="opisanie">
+                            <span>WhatsApp</span>
+                            <span>Обрабатывайте сообщения из вашего приложения WhatsApp прямо в Юздеске. Вам нужна только сим-карта.</span>
+                        </div>
+                        <div class="buttons_card">
+                            <button class="minus">-</button>
+                            <input class="quantity" type="text" value="0" min="0" id="btn5">
+                            <button class="plus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main">                                    <!--карточка "WhatsApp Business"-->
+                    <div class="card">
+                        <div>
+                            <img class="image" src="../bot_cs/image/WA.svg" alt="WABA">
+                        </div>
+                        <div class="opisanie">
+                            <span>WhatsApp Business</span>
+                            <span>Официальная интеграция с WhatsApp Business.</span>
+                        </div>
+                        <div class="buttons_card">
+                            <button class="minus">-</button>
+                            <input class="quantity" type="text" value="0" min="0" id="btn6">
+                            <button class="plus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main">                                    <!--карточка "Viber"-->
+                    <div class="card">
+                        <div>
+                            <img class="image" src="../bot_cs/image/viber.png" alt="Viber">
+                        </div>
+                        <div class="opisanie">
+                            <span>Viber</span>
+                            <span>Интеграция с Viber по номеру телефона позволит вам инициировать диалоги с пользователями.</span>
+                        </div>
+                        <div class="buttons_card">
+                            <button class="minus">-</button>
+                            <input class="quantity" type="text" value="0" min="0" id="btn7">
+                            <button class="plus">+</button>
+                        </div>
+                    </div>
+                </div>                
+            </section>
+        </header>
+    </div>
+</body>
+</html>
